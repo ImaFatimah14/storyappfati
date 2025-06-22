@@ -12,8 +12,19 @@ export default class HomePage {
   }
 
   async afterRender() {
-    const stories = await getStories();
+    let stories = [];
+    try {
+      stories = await getStories();
+    } catch (e) {
+      // tampilkan pesan error jika gagal ambil data
+      document.getElementById('stories-list').innerHTML = '<p class="error">Gagal memuat cerita. Silakan login atau cek koneksi.</p>';
+      return;
+    }
     const storiesList = document.getElementById('stories-list');
+    if (!stories || !Array.isArray(stories)) {
+      storiesList.innerHTML = '<p class="error">Tidak ada cerita untuk ditampilkan.</p>';
+      return;
+    }
     storiesList.innerHTML = stories.map((story, idx) => `
       <article class="story-item">
         <img src="${story.photoUrl}" alt="${story.name}" class="story-img"/>
