@@ -1,0 +1,8 @@
+APP_URL=<url_aplikasi>
+MAP_SERVICE_API_KEY=<api_key>
+DEPLOY_URL=<url_deploy_anda>
+# Ganti <url_deploy_anda> dengan URL hasil deploy (misal GitHub Pages)
+# VAPID_PUBLIC_KEY=... (isi dengan VAPID key dari API Dicoding)
+# Jika aplikasi ini menggunakan API key untuk layanan peta, masukkan di sini.
+# Contoh: MAP_SERVICE_API_KEY=YOUR_API_KEY
+# Saat ini belum ada API key yang digunakan.
